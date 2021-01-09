@@ -33,5 +33,16 @@ function appendDom(){
 }
 
 function inputRow(){
+    let firstName = $('#firstName').val();
+    let lastName = $('#lastName').val();
+    let salary = $('#annualSalary').val();
+    let idNumber = $('#idBox').val();
+    let param = $('#tableBody');
+    param.append('<tr><td>' + firstName + '</td><td>' + lastName + '</td><td>' + idNumber + '</td><td>' + salary + '</td></tr>');
+    $('#firstName').val('');
+    $('#lastName').val('');
+    $('#annualSalary').val('');
+    $('#idBox').val('');
+
 
 }
