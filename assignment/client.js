@@ -5,6 +5,7 @@ function readyNow() {
 }
 
 function appendDom(){
+
     let firstNameBox = $('<input type="text" id="firstName" placeholder = "First Name" />');
     $('body').append(firstNameBox);
     let lastNameBox = $('<input type="text" id="lastName" placeholder = "Last Name" />');
@@ -15,17 +16,22 @@ function appendDom(){
     $('body').append(annualSalaryBox);
     let submitButton = $('<button id="submitButton">Submit</button>');
     $('body').append(submitButton);
+
+    let employeeHeader = $('<h2>Employee<h2>');
+    $('body').append(employeeHeader);
+
     let table = $('<table></table>');
     table.append('<thead><tr><th>First Name</th><th>Last Name</th><th>ID</th><th>Annual Salary</th></thead>');
 
     let tbody = $('<tbody id="tableBody"></tbody>');
+    
     table.append(tbody);
-
     $('body').append(table);
-
+    let totalMonthlyHeader = $('<h2>Total Monthly: $ <h2>');
+    $('body').append(totalMonthlyHeader);
     $('#submitButton').on("click", inputRow);
 }
 
 function inputRow(){
-    
+
 }
