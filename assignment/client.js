@@ -43,7 +43,9 @@ function inputRow(){
     let lastName = $('#lastName').val();
     let salary = $('#annualSalary').val();
     let idNumber = $('#idBox').val();
-  
+    if(firstName!='' && lastName!='' && salary!=''&&idNumber!='' && salary >= 0 && idNumber >= 0){
+        console.log('the array is empty');
+    
     //adds a row to the table based on the input values
     let param = $('#tableBody');
     param.append('<tr><td>' + firstName + '</td><td>' + lastName + '</td><td>' + idNumber + '</td><td class = "salary" >' + salary + '</td><td><button class = "deleteButton" >Delete</button></td></tr>');
@@ -56,7 +58,7 @@ function inputRow(){
     $('#lastName').val('');
     $('#annualSalary').val('');
     $('#idBox').val('');
-
+    }
 }//end inputRow
 
 //calculates the total monthly and updates the DOM
