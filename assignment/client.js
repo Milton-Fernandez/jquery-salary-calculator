@@ -1,11 +1,11 @@
-$(readyNow); // Shorthand for $(document).ready(readyNow);
+$(readyNow); 
 let totalMonthly = 0;
 function readyNow() {
     appendDom();
 }
 
 function appendDom(){
-
+    //creates inputs boxes to the DOM
     let firstNameBox = $('<input type="text" id="firstName" placeholder = "First Name" />');
     $('body').append(firstNameBox);
     let lastNameBox = $('<input type="text" id="lastName" placeholder = "Last Name" />');
@@ -16,17 +16,16 @@ function appendDom(){
     $('body').append(annualSalaryBox);
     let submitButton = $('<button id="submitButton">Submit</button>');
     $('body').append(submitButton);
-
+    //new header
     let employeeHeader = $('<h2>Employee<h2>');
     $('body').append(employeeHeader);
-
+    //creates a table and appends to the DOM
     let table = $('<table></table>');
     table.append('<thead><tr><th>First Name</th><th>Last Name</th><th>ID</th><th>Annual Salary</th><th> </th></thead>');
-
     let tbody = $('<tbody id="tableBody"></tbody>');
-    
     table.append(tbody);
     $('body').append(table);
+    //new header at the bottom of the page
     let totalMonthlyHeader = $('<h2>Total Monthly: $<span id="totalMonthly">0</span> <h2>');
     $('body').append(totalMonthlyHeader);
     $('#submitButton').on("click", inputRow);
@@ -43,11 +42,12 @@ function inputRow(){
   
     //adds a row to the table based on the input values
     let param = $('#tableBody');
-    param.append('<tr><td>' + firstName + '</td><td>' + lastName + '</td><td>' + idNumber + '</td><td>' + salary + '</td><td><button onclick = "deleterow(id)">Delete</button></td></tr>');
+    param.append('<tr><td>' + firstName + '</td><td>' + lastName + '</td><td>' + idNumber + '</td><td>' + salary + '</td><td><button class = "deleteButton" >Delete</button></td></tr>');
+    $('.deleteButton').on("click", deleteRow);
     //computes the total monthly based on inputs
     totalMonth();
 
-
+    //empty input boxes
     $('#firstName').val('');
     $('#lastName').val('');
     $('#annualSalary').val('');
@@ -66,7 +66,15 @@ function totalMonth(){
     el.empty();
 
     el.append(totalMonthly);
+    //turn text red if totalMonthly >= 20000
     if (totalMonthly >= 20000) {
         document.getElementById("totalMonthly").style.color = '#FF0000';
     }
+}
+
+function deleteRow(){
+   console.log('button works')
+   
+    $(this).parents('tr').remove();
+
 }
