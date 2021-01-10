@@ -43,21 +43,20 @@ function inputRow(){
     let lastName = $('#lastName').val();
     let salary = $('#annualSalary').val();
     let idNumber = $('#idBox').val();
+    //if condition to make sure the input boxes aren't empty and salary and idnumber are numbers
     if(firstName!='' && lastName!='' && salary!=''&&idNumber!='' && salary >= 0 && idNumber >= 0){
-        console.log('the array is empty');
-    
-    //adds a row to the table based on the input values
-    let param = $('#tableBody');
-    param.append('<tr><td>' + firstName + '</td><td>' + lastName + '</td><td>' + idNumber + '</td><td class = "salary" >' + salary + '</td><td><button class = "deleteButton" >Delete</button></td></tr>');
-    $('.deleteButton').on("click", deleteRow);
-    //computes the total monthly based on inputs
-    totalMonth();
+        //adds a row to the table based on the input values
+        let param = $('#tableBody');
+        param.append('<tr><td>' + firstName + '</td><td>' + lastName + '</td><td>' + idNumber + '</td><td class = "salary" >' + salary + '</td><td><button class = "deleteButton" >Delete</button></td></tr>');
+        $('.deleteButton').on("click", deleteRow);
+        //computes the total monthly based on inputs
+        totalMonth();
 
-    //empty input boxes
-    $('#firstName').val('');
-    $('#lastName').val('');
-    $('#annualSalary').val('');
-    $('#idBox').val('');
+        //empty input boxes
+        $('#firstName').val('');
+        $('#lastName').val('');
+        $('#annualSalary').val('');
+        $('#idBox').val('');
     }
 }//end inputRow
 
