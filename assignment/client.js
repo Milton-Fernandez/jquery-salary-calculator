@@ -1,5 +1,5 @@
 $(readyNow); // Shorthand for $(document).ready(readyNow);
-
+let totalMonthly = 0;
 function readyNow() {
     appendDom();
 }
@@ -21,15 +21,17 @@ function appendDom(){
     $('body').append(employeeHeader);
 
     let table = $('<table></table>');
-    table.append('<thead><tr><th>First Name</th><th>Last Name</th><th>ID</th><th>Annual Salary</th></thead>');
+    table.append('<thead><tr><th>First Name</th><th>Last Name</th><th>ID</th><th>Annual Salary</th><th> </th></thead>');
 
     let tbody = $('<tbody id="tableBody"></tbody>');
     
     table.append(tbody);
     $('body').append(table);
-    let totalMonthlyHeader = $('<h2>Total Monthly: $<span id="totalMontly">0</span> <h2>');
+    let totalMonthlyHeader = $('<h2>Total Monthly: $<span id="totalMonthly">0</span> <h2>');
     $('body').append(totalMonthlyHeader);
     $('#submitButton').on("click", inputRow);
+    
+
 }
 
 function inputRow(){
@@ -38,12 +40,12 @@ function inputRow(){
     let lastName = $('#lastName').val();
     let salary = $('#annualSalary').val();
     let idNumber = $('#idBox').val();
-    console.log(firstName);
+  
     //adds a row to the table based on the input values
     let param = $('#tableBody');
-    param.append('<tr><td>' + firstName + '</td><td>' + lastName + '</td><td>' + idNumber + '</td><td>' + salary + '</td></tr>');
+    param.append('<tr><td>' + firstName + '</td><td>' + lastName + '</td><td>' + idNumber + '</td><td>' + salary + '</td><td><button onclick = "deleterow(id)">Delete</button></td></tr>');
     //computes the total monthly based on inputs
-    totalMonthly();
+    totalMonth();
 
 
     $('#firstName').val('');
@@ -55,14 +57,16 @@ function inputRow(){
 }
 
 function totalMonth(){
-    let annualSalary = $('#annualSalary');
-    let integerSalary = Number(annualSalary);
-    let monthlySalary = integerSalary / 12;
-    let fixedNum = monthlySalary.toFixed(2);
-    console.log(monthlySalary);
-    console.log(fixedNum);
-    let totalMonthly = $('#totalMonthly');
-    totalMonthly.empty();
-    totalMonthly.append(fixedNum);
+    let salary = $('#annualSalary').val();
+    salary = salary / 12;
+    let calculatedMonthly = Number(salary.toFixed(2));
+    totalMonthly += calculatedMonthly;
+    let el = $('#totalMonthly');
 
+    el.empty();
+
+    el.append(totalMonthly);
+    if (totalMonthly >= 20000) {
+        document.getElementById("totalMonthly").style.color = '#FF0000';
+    }
 }

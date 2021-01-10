@@ -12,6 +12,7 @@ h1 {
 table {
   border-collapse: collapse;
   width: 100%;
+  
 }
 
 th, td {
@@ -28,6 +29,7 @@ th {
   color: black;
   font-size: 18px;
 }
+
 body{
     border-style: solid;
 }
