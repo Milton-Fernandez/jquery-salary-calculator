@@ -14,6 +14,8 @@ function appendDom(){
     $('body').append(lastNameBox);
     let idBox = $('<input type="text" id="idBox" placeholder = "ID" />');
     $('body').append(idBox);
+    let title = $('<input type="text" id="title" placeholder = "Title" />');
+    $('body').append(title);
     let annualSalaryBox = $('<input type="text" id="annualSalary" placeholder = "Annual Salary" />');
     $('body').append(annualSalaryBox);
     let submitButton = $('<button id="submitButton">Submit</button>');
@@ -24,7 +26,7 @@ function appendDom(){
 
     //creates a table and appends to the DOM
     let table = $('<table></table>');
-    table.append('<thead><tr><th>First Name</th><th>Last Name</th><th>ID</th><th>Annual Salary</th><th> </th></thead>');
+    table.append('<thead><tr><th>First Name</th><th>Last Name</th><th>ID</th><th>Title</th><th>Annual Salary</th><th> </th></thead>');
     let tbody = $('<tbody id="tableBody"></tbody>');
     table.append(tbody);
     $('body').append(table);
@@ -43,11 +45,12 @@ function inputRow(){
     let lastName = $('#lastName').val();
     let salary = $('#annualSalary').val();
     let idNumber = $('#idBox').val();
+    let title = $('#title').val();
     //if condition to make sure the input boxes aren't empty and salary and idnumber are numbers
-    if(firstName!='' && lastName!='' && salary!=''&&idNumber!='' && salary >= 0 && idNumber >= 0){
+    if(firstName!='' && lastName!='' && title!='' && salary!=''&&idNumber!='' && salary >= 0 && idNumber >= 0){
         //adds a row to the table based on the input values
         let param = $('#tableBody');
-        param.append('<tr><td>' + firstName + '</td><td>' + lastName + '</td><td>' + idNumber + '</td><td class = "salary" >' + salary + '</td><td><button class = "deleteButton" >Delete</button></td></tr>');
+        param.append('<tr><td>' + firstName + '</td><td>' + lastName + '</td><td>' + idNumber + '</td><td>' + title+ '</td><td class = "salary" >' + salary + '</td><td><button class = "deleteButton" >Delete</button></td></tr>');
         $('.deleteButton').on("click", deleteRow);
         //computes the total monthly based on inputs
         totalMonth();
@@ -57,6 +60,7 @@ function inputRow(){
         $('#lastName').val('');
         $('#annualSalary').val('');
         $('#idBox').val('');
+        $('#title').val('');
     }
 }//end inputRow
 
@@ -80,7 +84,7 @@ function totalMonth(){
 //updates the DOM and delets the row
 function deleteRow(){   
     //grabs the annual salary from the table
-    let el = $(this).closest('tr').find('td:nth-child(4)').text();
+    let el = $(this).closest('tr').find('td:nth-child(5)').text();
     //divides it by 12 and updates the totalMonthly
     let num = el;
     num = num / 12;
