@@ -25,14 +25,14 @@ function appendDom(){
     $('body').append(employeeHeader);
 
     //creates a table and appends to the DOM
-    let table = $('<table style = "margin: 10px 10px 10 px 10 px;"></table>');
+    let table = $('<table></table>');
     table.append('<thead><tr><th>First Name</th><th>Last Name</th><th>ID</th><th>Title</th><th>Annual Salary</th><th> </th></thead>');
     let tbody = $('<tbody id="tableBody"></tbody>');
     table.append(tbody);
     $('body').append(table);
 
     //new header at the bottom of the page
-    let totalMonthlyHeader = $('<h2 style = "text-align:right;">Total Monthly: $<span id="totalMonthly">0</span> <h2>');
+    let totalMonthlyHeader = $('<h2 style = "text-align:right; margin-right: 10px">Total Monthly: $<span id="totalMonthly">0</span> <h2>');
     $('body').append(totalMonthlyHeader);
     $('#submitButton').on("click", inputRow);
     
