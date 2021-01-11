@@ -8,31 +8,31 @@ function readyNow() {
 function appendDom(){
 
     //creates inputs boxes to the DOM
-    let firstNameBox = $('<input type="text" id="firstName" placeholder = "First Name" />');
+    let firstNameBox = $('<input type="text" id="firstName" style = "margin: 10px;" placeholder = "First Name" />');
     $('body').append(firstNameBox);
-    let lastNameBox = $('<input type="text" id="lastName" placeholder = "Last Name" />');
+    let lastNameBox = $('<input type="text" id="lastName" style = "margin: 10px;" placeholder = "Last Name" />');
     $('body').append(lastNameBox);
-    let idBox = $('<input type="text" id="idBox" placeholder = "ID" />');
+    let idBox = $('<input type="text" id="idBox" style = "margin: 10px;" placeholder = "ID" />');
     $('body').append(idBox);
     let title = $('<input type="text" id="title" placeholder = "Title" />');
     $('body').append(title);
-    let annualSalaryBox = $('<input type="text" id="annualSalary" placeholder = "Annual Salary" />');
+    let annualSalaryBox = $('<input type="text" id="annualSalary" style = "margin: 10px;" placeholder = "Annual Salary" /><br>');
     $('body').append(annualSalaryBox);
-    let submitButton = $('<button id="submitButton">Submit</button>');
+    let submitButton = $('<button id="submitButton" style = "margin-left: 777px;">Submit</button>');
     $('body').append(submitButton);
     //new header
-    let employeeHeader = $('<h2>Employee<h2>');
+    let employeeHeader = $('<h2 style = "margin: 10px;">Employee<h2>');
     $('body').append(employeeHeader);
 
     //creates a table and appends to the DOM
-    let table = $('<table></table>');
+    let table = $('<table style = "margin: 10px 10px 10 px 10 px;"></table>');
     table.append('<thead><tr><th>First Name</th><th>Last Name</th><th>ID</th><th>Title</th><th>Annual Salary</th><th> </th></thead>');
     let tbody = $('<tbody id="tableBody"></tbody>');
     table.append(tbody);
     $('body').append(table);
 
     //new header at the bottom of the page
-    let totalMonthlyHeader = $('<h2>Total Monthly: $<span id="totalMonthly">0</span> <h2>');
+    let totalMonthlyHeader = $('<h2 style = "text-align:right;">Total Monthly: $<span id="totalMonthly">0</span> <h2>');
     $('body').append(totalMonthlyHeader);
     $('#submitButton').on("click", inputRow);
     
