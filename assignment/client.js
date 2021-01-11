@@ -50,7 +50,7 @@ function inputRow(){
     if(firstName!='' && lastName!='' && title!='' && salary!=''&&idNumber!='' && salary >= 0 && idNumber >= 0){
         //adds a row to the table based on the input values
         let param = $('#tableBody');
-        param.append('<tr><td>' + firstName + '</td><td>' + lastName + '</td><td>' + idNumber + '</td><td>' + title+ '</td><td class = "salary" >' + salary + '</td><td><button class = "deleteButton" >Delete</button></td></tr>');
+        param.append('<tr><td>' + firstName + '</td><td>' + lastName + '</td><td>' + idNumber + '</td><td>' + title+ '</td><td class = "salary" >$' + salary + '</td><td><button class = "deleteButton" >Delete</button></td></tr>');
         $('.deleteButton').on("click", deleteRow);
         //computes the total monthly based on inputs
         totalMonth();
